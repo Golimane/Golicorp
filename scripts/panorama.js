@@ -19,7 +19,7 @@ function scrollPanorama() {
     ) || 0;
 
     speed = Math.min(speed + incr, MAXSPEED);
-    console.log(`current speed = ${speed}`);
+    // console.log(`current speed = ${speed}`);
     panorama.style.backgroundPosition = `${panoramaBackgroundX + scrollDirection * speed}px 0px`;
 
     requestAnimationFrame(scrollPanorama);
