@@ -1,0 +1,39 @@
+#panorama {
+  position: relative;
+  width: 115%;
+  left: -7.5%;
+  min-height: 10vw; /* 1/4 of the width because panorama is 4000x1000 */
+  padding-top: 25%;
+  background-size: cover;
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  overflow-x: visible;
+  box-shadow: 0 0 12px 4px black;
+  margin-top: 10%;
+}
+
+#panorama_arrow_left, #panorama_arrow_right {
+  position: absolute;
+  height: 25%;
+  width: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+#panorama_arrow_left {
+  left: 5%;
+}
+#panorama_arrow_right {
+  right: 5%;
+}
+
+@keyframes arrow-move {
+  0% { transform: translate(0, -50%); }
+  25% { transform: translate(2px, -50%); }
+  50% { transform: translate(0, -50%); }
+  75% { transform: translate(-2px, -50%); }
+}
+
+#panorama_arrow_left:hover, #panorama_arrow_right:hover {
+  animation: arrow-move 0.5s infinite ease-in-out;
+}

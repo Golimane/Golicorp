@@ -1,0 +1,100 @@
+#screenshots {
+  position: relative;
+  width: 100%;
+  min-height: calc((9 / 16) * 40vw);
+}
+#screenshots div {
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  box-shadow: 0 0 12px 4px black;
+}
+
+
+#screenshot_hidden_previous {
+  z-index: 0;
+  width: 30%;
+  height: auto;
+  bottom: 15%;
+  left: 35%;
+  filter: brightness(60%);
+  background-color: rgba(10, 10, 20, 1.0);
+}
+#screenshot_previousprevious {
+  z-index: 0;
+  width: 30%;
+  height: auto;
+  bottom: 15%;
+  left: 0%;
+  filter: brightness(60%) blur(1px);
+  cursor: pointer;
+  background-color: rgba(10, 10, 20, 1.0);
+}
+#screenshot_previousprevious:hover {
+  animation: all 1s ease-in-out;
+  filter: brightness(70%);
+  transform: scale(1.025);
+}
+#screenshot_previous {
+  z-index: 1;
+  width: 37%;
+  height: auto;
+  bottom: 10%;
+  left: 5%;
+  filter: brightness(75%) blur(0.5px);
+  cursor: pointer;
+  background-color: rgba(10, 10, 20, 1.0);
+}
+#screenshot_previous:hover {
+  animation: all 1s ease-in-out;
+  filter: brightness(85%);
+  transform: scale(1.025);
+}
+#screenshot_current {
+  z-index: 2;
+  width: 50%;
+  height: auto;
+  bottom: 0;
+  left: 25%;
+  background-color: rgba(10, 10, 20, 1.0);
+}
+#screenshot_next {
+  z-index: 1;
+  width: 37%;
+  height: auto;
+  bottom: 10%;
+  left: 58%;
+  filter: brightness(75%) blur(0.5px);
+  cursor: pointer;
+  background-color: rgba(10, 10, 20, 1.0);
+}
+#screenshot_next:hover {
+  animation: all 1s ease-in-out;
+  filter: brightness(85%);
+  transform: scale(1.025);
+}
+#screenshot_nextnext {
+  z-index: 0;
+  width: 30%;
+  height: auto;
+  bottom: 15%;
+  left: 70%;
+  filter: brightness(60%) blur(1px);
+  cursor: pointer;
+  background-color: rgba(10, 10, 20, 1.0);
+}
+#screenshot_nextnext:hover {
+  animation: all 1s ease-in-out;
+  filter: brightness(70%);
+  transform: scale(1.025);
+}
+#screenshot_hidden_next {
+  z-index: 0;
+  width: 30%;
+  height: auto;
+  bottom: 15%;
+  left: 35%;
+  filter: brightness(60%);
+  background-color: rgba(10, 10, 20, 1.0);
+}

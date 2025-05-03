@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golicorp</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/carousel.css">
+    <link rel="stylesheet" href="styles/loadingCache.css">
+    <script src="scripts/jsonSorter.js" defer></script>
+    <script src="scripts/logoSound.js" defer></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@ctrl/tinycolor"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@ctrl/tinycolor/dist/tinycolor.umd.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/node-vibrant@latest/dist/vibrant.min.js"></script>	
+    <script src="scripts/image.js" type="module" defer></script>
+    <script src="scripts/carousel.js" type="module" defer></script>
+
+    <link rel="stylesheet" href="styles/screenshots.css">
+    <script src="scripts/screenshots.js" type="module" defer></script>
+    
+    <link rel="stylesheet" href="styles/panorama.css">
+
+    <script src="scripts/panorama.js" type="module" defer></script>
+</head>
+<body>
+
+    <div id="loadingCache">
+        <img src="/img/ikon.png" alt="loading">
+        <h1>Loading please wait...</h1>
+    </div>
+
+    <div id="bg">
+        <div id="bgImg"></div>
+        <div id="bgTransition"></div>
+        <div id="bgMask"></div>
+    </div>
+
+    <header>
+        <img id="logo" src="img/title.png" alt="Golicorp Logo" style="cursor: pointer;">
+        <!-- <p id="copyright" style="font-size: 50px; color: white; text-shadow: 0 0 10px black">©</p> -->
+    </header>
+
+
+    <div class="diapo">
+        <div id="price" style="margin-bottom: 0.25em">
+            <h2 id="priceTxt" style="font-size: 2em; vertical-align: middle; width: auto; color: var(--color-light)">350</h2>
+            <img src="./img/minecoins.png" alt="Minecoins" style="height: 2em; width: auto; margin-left: 1em"/>
+        </div>
+        <div class="carousel">
+            <img id="previousprevious">
+            <img id="previous"   alt="Previous Image"     >
+            <img id="current"    alt="Current Image">
+            <img id="playButton" alt="Play Trailer"      src="img/play.png" class="playButtonOn">
+            <img id="next"       alt="Next Image"         >
+            <img id="nextnext">
+        </div>
+        <div id="rating" style="text-align: center; justify-content: center; display: flex; margin-top:1.0%; align-items: flex-end">
+            <div id="stars-container" class="stars-container">
+                <div class="stars-full"></div>
+                <div class="stars-empty"></div>
+            </div>
+            <h2 id="rateNumber">-99 rates</h2>
+        </div>
+    </div>
+
+    <div id="notes">
+        <h1 id="title" style="color: var(--color-light); animation: color 0.5s ease-out;">Title</h1>
+        <div id="notes" style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 id="studio" style="text-align: left; font-weight: lighter; margin-top: -2em; margin-left: -1em; font-size: 1em; color: rgba(255, 255, 255, 0.5)">By Studio</h2>
+            <div id="getItem">
+                <img src="/img/creeper.png" alt="Creeper icon"/>
+                <p>Get this item</p>
+                <!-- minecraft://openStore/?showStoreOffer=${id}&webSessionId=xWehElDgdvVD3fNrrmJOJc -->
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        
+        <div id="description"></div>
+        <div id="screenshots">
+          <div id="screenshot_hidden_previous"></div>
+          <div id="screenshot_hidden_next"></div>
+          <div id="screenshot_previousprevious"></div>
+          <div id="screenshot_previous"></div>
+          <div id="screenshot_current"></div>
+          <div id="screenshot_next"></div>
+          <div id="screenshot_nextnext"></div>
+        </div>
+
+        <div id="panorama">
+            <img id="panorama_arrow_left" src="/img/arrow_left.webp"/>
+            <img id="panorama_arrow_right" src="/img/arrow_right.webp"/>
+        </div>
+        
+        <div id="detailsContent">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue id urna ac auctor. Quisque vitae bibendum nisi. Suspendisse hendrerit velit vitae massa suscipit, vel feugiat nunc sodales. Sed lobortis sagittis felis in tempor. Donec porttitor, elit non vulputate ultricies, odio nulla rutrum metus, ut finibus est nisi vel nibh. Etiam suscipit ipsum in mauris accumsan, vitae congue lorem consequat. Nam rutrum tellus vitae lacus congue, quis porta risus tempus. Duis mattis metus iaculis, commodo ex eget, suscipit ante.</p>
+            <p>Etiam non ultrices enim, volutpat tempor turpis. Maecenas nec lacinia lacus. Nulla molestie sem vel odio ultricies gravida. Praesent lorem sem, lobortis eu pharetra vitae, sagittis scelerisque dui. Sed dapibus risus in luctus elementum. Aenean faucibus, sem vitae condimentum ultricies, lacus dolor dignissim quam, ac dapibus magna mauris consequat lorem. Nam vel nisl commodo, facilisis nisl at, commodo magna. Nam consequat, elit quis tempus dictum, lacus tortor ullamcorper leo, id molestie lorem tellus eu sem. Phasellus dapibus malesuada massa et placerat.</p>
+            <p>Curabitur sollicitudin ultricies pretium. Donec id est malesuada, tristique dolor quis, venenatis sem. Nam consectetur rhoncus feugiat. Proin ultricies congue ipsum, eget dapibus massa consequat sit amet. Etiam pulvinar lorem metus. Mauris scelerisque gravida accumsan. Curabitur viverra varius finibus. Sed ante ipsum, maximus non vulputate sed, blandit faucibus ligula. In semper dapibus nulla. Donec gravida nisi elementum rutrum pretium. Sed ac est eleifend, sollicitudin ante et, sollicitudin orci. Quisque ultrices nulla vel nulla accumsan interdum. Nulla vitae metus sed nulla varius placerat ut eget dui.</p>
+            <p>Donec sed purus eros. Nam nunc risus, condimentum eget leo in, sagittis sagittis est. Vestibulum eu nisi gravida, tempus dui non, elementum libero. Proin auctor, est pharetra pulvinar lobortis, eros dolor malesuada orci, et vulputate libero lacus quis metus. Duis volutpat tempus enim vel vulputate. Nullam mattis, elit at scelerisque luctus, nulla lacus venenatis risus, at ullamcorper augue sapien id diam. Quisque nec luctus libero. Maecenas felis magna, posuere viverra ipsum a, dictum mattis lacus. Nam fringilla in massa in elementum. Vivamus et semper nisl. Aliquam aliquam gravida libero, at fermentum quam. Morbi tristique ultrices pulvinar. Fusce sodales tristique dui, interdum pellentesque lectus eleifend eu. Nunc posuere laoreet sapien. Nulla at nisl massa. Cras scelerisque felis et aliquet tempus.</p>
+            <p>Vestibulum tincidunt luctus porta. Phasellus suscipit velit vel eros dignissim egestas. Donec eget odio quam. Quisque ultrices purus enim, et tincidunt felis ornare vulputate. Nullam lobortis, tortor ut condimentum ultricies, tellus massa rhoncus lorem, vitae accumsan leo urna at lacus. Phasellus eget metus quam. Quisque lacinia cursus fringilla. Aliquam erat volutpat. Phasellus volutpat blandit molestie. Etiam euismod at massa eget elementum. Curabitur non accumsan ipsum, id sollicitudin tortor. In vitae enim nec turpis pulvinar sodales. In vestibulum, metus in egestas suscipit, libero mauris scelerisque metus, non fringilla dolor nibh nec purus. Aenean eget dictum lectus.</p>
+        </div>
+
+        <div id="tags"></div>
+    </div>
+
+    
+    <div id="toggle-container">
+        <div id="toggle-show-all">
+            <div id="slide-line">
+                <div id="slider"><img src="/img/creeper.png"/></div>
+            </div>
+        </div>
+        <p>Show all content</p>
+    </div>
+    <footer class="social-footer">
+        <a href="#" class="social-link" disabled><img src="img/networks/instagram.svg" alt="Instagram"></a>
+        <a href="#" class="social-link" disabled><img src="img/networks/tiktok.svg" alt="TikTok"></a>
+        <a href="https://discord.com/golimane/3225" id="discord" class="social-link"><img src="img/networks/discord.svg" alt="Discord"></a>
+        <a href="mailto:golimanemc.pro@gmail.com" id="mail" class="social-link"><img src="img/networks/mail.svg" alt="Mail"></a>
+        <a href="https://x.com/golimanemc" class="social-link"><img src="img/networks/x.svg" alt="X"></a>
+        <a href="#" class="social-link" disabled><img src="img/networks/youtube.svg" alt="YouTube"></a>
+    </footer>
+    
+</body>
+</html>
