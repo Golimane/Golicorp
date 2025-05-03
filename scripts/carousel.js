@@ -1,5 +1,8 @@
 import { getVibrantColor, getLightVibrantColor } from '/scripts/image.js';
 import { setScreenshotsUrlList, updateVariables } from '/scripts/screenshots.js'
+import { mobSay, playsound } from '/scripts/logoSound.js'
+document.getElementById("logo").addEventListener('click', mobSay);
+
 
 const IMGNOTFOUNDJPG = "./img/img_not_found.jpg"
 
@@ -67,9 +70,11 @@ const getItem = document.getElementById("getItem");
 getItem.addEventListener('click', goToBuyLink);
 
 function goToTrailer() {
+    playsound('click');
     if (currentTrailerUrl != '') window.open(currentTrailerUrl, "_blank");
 }
 function goToBuyLink() {
+    playsound('click');
     const id = currentContentList[currentIndex]['id'];
     const link = `https://www.minecraft.net/fr-fr/marketplace/pdp?id=${id}`;
 
@@ -161,6 +166,7 @@ function carouselPrevious() {
 
     if (playButton) playButton.id = "playButtonNext";
 
+    playsound('switch');
     endCarouselAnimation(-1, "previousprevious");
 }
 function carouselNext() {
@@ -173,6 +179,7 @@ function carouselNext() {
 
     if (playButton) playButton.id = "playButtonPrevious";
 
+    playsound('switch');
     endCarouselAnimation(1, "nextnext");
 }
 
@@ -371,6 +378,7 @@ const toggleBg = document.getElementById('toggle-show-all');
 
 toggleContainer.addEventListener('click', toggleShowAll);
 function toggleShowAll() {
+    playsound('click');
     previousContent = currentContentList[currentIndex];
     showAllContent = !showAllContent;
     console.log('showAllContent ->', showAllContent ? "showing all content" : "showing only main content");

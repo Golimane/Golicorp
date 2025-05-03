@@ -1,3 +1,4 @@
+import { playsound } from '/scripts/logoSound.js'
 const panorama = document.getElementById("panorama");
 const leftArrow = document.getElementById("panorama_arrow_left");
 const rightArrow = document.getElementById("panorama_arrow_right");
@@ -25,6 +26,7 @@ function scrollPanorama() {
 }
 
 function startScrolling(direction) {
+    playsound('click');
     scrollDirection = direction;
     if (!scrolling) {
         scrolling = true;

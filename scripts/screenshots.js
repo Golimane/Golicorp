@@ -1,3 +1,4 @@
+import { playsound } from '/scripts/logoSound.js'
 const IMGNOTFOUNDJPG = "./img/img_not_found.jpg"
 
 
@@ -68,10 +69,11 @@ export function updateVariables() {
 
 // CAROUSEL BEHAVIORS
 function previousPreviousScreenshotClick() {
-    previousScreenshotClick();
+    previousScreenshotClick(true);
     setTimeout(previousScreenshotClick, 500);
 }
-function previousScreenshotClick() {
+function previousScreenshotClick(sound = false) {
+    if (sound) playsound('discret');
     const size = screenshotsUrlList.length;
     currentIndex = (((currentIndex - 1) % size) + size) % size;
 
@@ -90,10 +92,11 @@ function previousScreenshotClick() {
     hiddenPreviousScreenshot.style.backgroundImage = `url(${getScreenshotFromIndex(currentIndex - 3)})`;
 }
 function nextNextScreenshotClick() {
-    nextScreenshotClick();
+    nextScreenshotClick(true);
     setTimeout(nextScreenshotClick, 500);
 }
-function nextScreenshotClick() {
+function nextScreenshotClick(sound = false) {
+    if (sound) playsound('discret');
     const size = screenshotsUrlList.length;
     currentIndex = (currentIndex + 1) % size;
 
