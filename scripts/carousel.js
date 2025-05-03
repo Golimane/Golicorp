@@ -249,7 +249,7 @@ function setPlayButton(state) {
         newButton.classList.add("playButtonOff");
         newButton.id = "playButton";
         newButton.alt = "Play Trailer";
-        newButton.src = "/img/play.png";
+        newButton.src = "img/play.png";
         document.getElementsByClassName('carousel')[0].appendChild(newButton);
         
         setTimeout(() => {
