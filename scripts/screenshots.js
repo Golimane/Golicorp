@@ -1,4 +1,4 @@
-import { playsound } from '/scripts/logoSound.js'
+import { playsound } from './logoSound.js'
 const IMGNOTFOUNDJPG = "./img/img_not_found.jpg"
 
 

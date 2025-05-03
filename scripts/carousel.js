@@ -1,6 +1,6 @@
-import { getVibrantColor, getLightVibrantColor } from '/scripts/image.js';
-import { setScreenshotsUrlList, updateVariables } from '/scripts/screenshots.js'
-import { mobSay, playsound } from '/scripts/logoSound.js'
+import { getVibrantColor, getLightVibrantColor } from './image.js';
+import { setScreenshotsUrlList, updateVariables } from './screenshots.js'
+import { mobSay, playsound } from './logoSound.js'
 document.getElementById("logo").addEventListener('click', mobSay);
 
 
