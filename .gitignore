@@ -1,0 +1,5 @@
+# Directories
+.tmp.sorter/
+
+# Files
+server.cmd
