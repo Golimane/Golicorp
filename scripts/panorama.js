@@ -10,12 +10,7 @@ let speed = 1.0;
 const incr = 0.01;
 const MAXSPEED = 6.5;
 
-export function getAbsolutePanoramaXPos() {
-    return absolutePanoramaXPos;
-}
 export function updatePanorama() {
-    console.log(`=========================  absolutePanoramaXPos = ${absolutePanoramaXPos}`);
-    
     panorama.style.backgroundPosition = `${parseInt(absolutePanoramaXPos)}px 0px`;
 }
 
@@ -25,7 +20,6 @@ function scrollPanorama() {
     speed = Math.min(speed + incr, MAXSPEED);
     absolutePanoramaXPos += scrollDirection * speed;
 
-    console.log(`=========================  absolutePanoramaXPos = ${absolutePanoramaXPos}`);
     panorama.style.backgroundPosition = `${parseInt(absolutePanoramaXPos)}px 0px`;
 
     requestAnimationFrame(scrollPanorama);
