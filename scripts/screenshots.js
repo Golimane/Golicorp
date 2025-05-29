@@ -1,4 +1,4 @@
-import { playsound } from './logoSound.js'
+import { playsound } from './Sound.js'
 const IMGNOTFOUNDJPG = "./img/img_not_found.jpg"
 
 
@@ -96,7 +96,7 @@ function nextNextScreenshotClick() {
     setTimeout(nextScreenshotClick, 500);
 }
 function nextScreenshotClick(sound = false) {
-    if (sound) playsound('discret');
+    if (sound) playsound('discret', 0.15);
     const size = screenshotsUrlList.length;
     currentIndex = (currentIndex + 1) % size;
 

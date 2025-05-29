@@ -1,4 +1,4 @@
-import { playsound } from './logoSound.js'
+import { playsound } from './Sound.js'
 const panorama = document.getElementById("panorama");
 const leftArrow = document.getElementById("panorama_arrow_left");
 const rightArrow = document.getElementById("panorama_arrow_right");
