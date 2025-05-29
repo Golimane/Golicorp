@@ -2,6 +2,7 @@ import { playsound } from './Sound.js'
 const panorama = document.getElementById("panorama");
 const leftArrow = document.getElementById("panorama_arrow_left");
 const rightArrow = document.getElementById("panorama_arrow_right");
+let absolutePanoramaXPos = 0.0;
 
 let scrolling = false;
 let scrollDirection = 0; // -1 = droite, 1 = gauche
@@ -9,18 +10,23 @@ let speed = 1.0;
 const incr = 0.01;
 const MAXSPEED = 6.5;
 
+export function getAbsolutePanoramaXPos() {
+    return absolutePanoramaXPos;
+}
+export function updatePanorama() {
+    console.log(`=========================  absolutePanoramaXPos = ${absolutePanoramaXPos}`);
+    
+    panorama.style.backgroundPosition = `${parseInt(absolutePanoramaXPos)}px 0px`;
+}
+
 function scrollPanorama() {
     if (!scrolling) return;
 
-    // Récupère la position actuelle à chaque appel
-    const panoramaBackgroundX = parseInt(
-        window.getComputedStyle(panorama).backgroundPositionX,
-        10
-    ) || 0;
-
     speed = Math.min(speed + incr, MAXSPEED);
-    // console.log(`current speed = ${speed}`);
-    panorama.style.backgroundPosition = `${panoramaBackgroundX + scrollDirection * speed}px 0px`;
+    absolutePanoramaXPos += scrollDirection * speed;
+
+    console.log(`=========================  absolutePanoramaXPos = ${absolutePanoramaXPos}`);
+    panorama.style.backgroundPosition = `${parseInt(absolutePanoramaXPos)}px 0px`;
 
     requestAnimationFrame(scrollPanorama);
 }

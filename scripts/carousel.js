@@ -1,5 +1,6 @@
 import { getVibrantColor, getLightVibrantColor } from './image.js';
 import { setScreenshotsUrlList, updateVariables } from './screenshots.js'
+import { updatePanorama } from './panorama.js';
 import { mobSay, playsound } from './Sound.js'
 document.getElementById("logo").addEventListener('click', mobSay);
 
@@ -342,7 +343,8 @@ function updateSources() {
             panorama.style.height = `${panoramaWidth * ratio * 1}px`; // Applique la hauteur proportionnelle
             panorama.style.background = `url(${panoramaImg}) repeat-x top left / auto 100%`;
             panorama.style.display = '';
-        };
+            updatePanorama();
+        }
     } else {
         panorama.style.display = 'none'
     }
@@ -395,6 +397,5 @@ function toggleShowAll() {
     }
     forceIndex(previousContent['id']);
 
-    
     updateCarousel();
 }
