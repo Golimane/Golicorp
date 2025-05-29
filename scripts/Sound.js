@@ -70,7 +70,7 @@ export async function playsound(soundtype, randomPitch = 0.0) {
         source.connect(audioContext.destination);
         source.start();
         
-        console.log(`Playing with pitch ratio: ${pitchRatio.toFixed(2)} (${source.detune.value.toFixed(0)} cents)`);
+        // console.log(`Playing with pitch ratio: ${pitchRatio.toFixed(2)} (${source.detune.value.toFixed(0)} cents)`);
     } catch (err) {
         console.error("Erreur lors de la lecture :", err);
     }
