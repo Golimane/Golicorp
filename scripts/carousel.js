@@ -374,7 +374,7 @@ function forceIndex(id) {
     currentIndex = indexFromId(currentContentList, id);
 }
 const toggleContainer = document.getElementById('toggle-container');
-const toggleBg = document.getElementById('toggle-show-all');
+const toggleBg = document.getElementById('toggle-content');
 
 toggleContainer.addEventListener('click', toggleShowAll);
 function toggleShowAll() {
@@ -384,7 +384,9 @@ function toggleShowAll() {
     console.log('showAllContent ->', showAllContent ? "showing all content" : "showing only main content");
     
     toggleBg.classList.toggle('active', showAllContent);
-    toggleContainer.classList.toggle('active', showAllContent);
+    // toggleContainer.classList.toggle('active', showAllContent);
+    document.getElementById('main_content_txt').classList.toggle('active', !showAllContent);
+    document.getElementById('all_content_txt').classList.toggle('active', showAllContent);
     currentContentList = shuffleArray(showAllContent ? window.contentList : mainContentList);
 
     // Force index to be on same index 

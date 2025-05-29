@@ -311,6 +311,10 @@ footer {
 
 
 #toggle-container {
+    --light-green: #7ae07d;
+    --green: #4CAF50;
+
+    opacity: 0.8;
     position: static;
     display: flex;
     align-items: center;
@@ -320,75 +324,62 @@ footer {
     right: 0%;
     margin-right: 2%;
     margin-bottom: 1%;
-    opacity: 35%;
     transition: opacity 0.5s ease;
 
     justify-content: flex-end;
     margin-left: auto;
 }
-#toggle-container.active {
-    opacity: 100%;
-}
-/* #toggle-container:not(.active) {
-    opacity: 50%;
-} */
-  
+
 #toggle-container p {
     margin: 0;
     font-size: 14px;
     color: white;
 }
+#toggle-container p.active {
+    opacity: 100%;
+}
+#toggle-container p:not(.active) {
+    opacity: 35%;
+}
   
-#toggle-show-all {
+  
+#toggle-content {
     --toggle-width: 50px;
     --toggle-height: 24px;
     --slider-size: 20px;
     
     width: var(--toggle-width);
     height: var(--toggle-height);
-    background-color: #e0e0e0;
     position: relative;
     transition: background-color 0.3s ease;
 }
- 
-#toggle-show-all.active #slide-line {
-    background-color: #b8e0ba;
-}
+
 #slide-line {
     position: absolute;
     top: 2px;
     left: 2px;
     right: 2px;
     bottom: 2px;
-    background-color: white;
-    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+    outline: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-#slider img {
-    height: var(--slider-size);
-    width: auto;
-}
+
 #slider {
     width: var(--slider-size);
     height: var(--slider-size);
-    background-color: white;
     position: absolute;
     left: 0px;
     top: 0px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
+    background-color: var(--light-green);
 } 
-#toggle-show-all.active #slide-line #slider{
-    background-color: #1e6121;
-}
-#toggle-show-all.active #slide-line #slider img{
-    filter: invert(100%);
-}
-  
-#toggle-show-all.active {
-    background-color: #4CAF50;
-}
-  
-#toggle-show-all.active #slider {
+#toggle-content.active #slider {
     transform: translateX(26px); /* 50px - 20px - 4px de marges */
+}
+
+#toggle-content #slide-line #slider img {
+    height: var(--slider-size);
+    width: auto;
 }
