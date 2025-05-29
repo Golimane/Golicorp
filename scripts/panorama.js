@@ -26,7 +26,7 @@ function scrollPanorama() {
 }
 
 function startScrolling(direction) {
-    playsound('click');
+    playsound('click', 0.05);
     scrollDirection = direction;
     if (!scrolling) {
         scrolling = true;
