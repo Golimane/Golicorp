@@ -104,7 +104,8 @@ function getPanorama(images) {
 
 
 
-
+document.getElementById("previousButton").addEventListener("click", carouselPrevious);
+document.getElementById("nextButton").addEventListener("click", carouselNext);
 // CAROUSEL BEHAVIORS
 function setCarouselImgs() {
     // Remove old event listeners
