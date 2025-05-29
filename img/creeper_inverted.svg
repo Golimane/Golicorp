@@ -1,0 +1,6 @@
+<svg width="160" height="160" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond noir avec trou -->
+  <path fill="black" fill-rule="evenodd" 
+        d="M16,16V0H0V16H16ZM
+           2,2 4,2 4,4 6,4 6,2 8,2 8,4 6,4 6,5 7,5 7,8 6,8 6,7 4,7 4,8 3,8 3,5 4,5 4,4 2,4Z"/>
+</svg>
