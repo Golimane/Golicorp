@@ -37,10 +37,11 @@ const checkContentListReady = setInterval(() => {
             }
         }
         currentContentList = shuffleArray(mainContentList);
-        updateCarousel();
         if (loadingCache) {
             loadingCache.remove();
         }
+        onStart();
+        updateCarousel();
     }
 }, 100);
 
@@ -65,7 +66,31 @@ const detailsContent = document.getElementById("detailsContent");
 
 let currentIndex = 0;
 
+function onStart() {
 
+    // TEST IF SHOW ALL CONTENT OR ONLY MAIN
+    const showAllContent = document.cookie.split('; ').find(row => row.startsWith('showAllContent='))?.split('=')[1];
+    console.log(`showAllContent = '${showAllContent}'`);
+    
+    if (showAllContent !== "") {
+        if (showAllContent == "true" ) {
+            toggleShowAll(false);
+        }
+    }
+
+
+    // FORCE INDEX TO LAST CONTENT
+    const idFromCookie = document.cookie.split('; ').find(row => row.startsWith('currentContent='))?.split('=')[1];
+    console.log(`previous ID from cookie is = '${idFromCookie}'`);
+    
+    if (idFromCookie !== "") {
+        if (indexFromId(currentContentList, idFromCookie) < 0) {
+            const previousContent = window.contentList.find(item => item.id === idFromCookie);
+            currentContentList.push(previousContent);
+        }
+        forceIndex(idFromCookie);
+    }
+}
 
 const getItem = document.getElementById("getItem");
 getItem.addEventListener('click', goToBuyLink);
@@ -152,6 +177,9 @@ function endCarouselAnimation(incrIndex, recreateElement) {
     setTimeout(() => {
         currentIndex = (currentIndex + incrIndex + currentContentList.length) % currentContentList.length;
         let currentContent = currentContentList[currentIndex];
+        console.log(`currentContent['id'] = ${currentContent['id']}`);
+        
+        document.cookie = `currentContent=${currentContent['id']}; expires=${new Date(Date.now() + 3600000).toUTCString()}; path=/`;
         console.log(`Opening ${currentContent['title']['neutral']}`);
         document.getElementById('hidden')?.remove();
         document.getElementById('playButtonNext')?.remove();
@@ -380,10 +408,11 @@ const toggleContainer = document.getElementById('toggle-container');
 const toggleBg = document.getElementById('toggle-content');
 
 toggleContainer.addEventListener('click', toggleShowAll);
-function toggleShowAll() {
-    playsound('click', 0.05);
+function toggleShowAll(playClick = true) {
+    if (playClick) playsound('click', 0.05);
     previousContent = currentContentList[currentIndex];
     showAllContent = !showAllContent;
+    document.cookie = `showAllContent=${showAllContent}; expires=${new Date(Date.now() + 3600000).toUTCString()}; path=/`;
     console.log('showAllContent ->', showAllContent ? "showing all content" : "showing only main content");
     
     toggleBg.classList.toggle('active', showAllContent);
