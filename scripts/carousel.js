@@ -62,7 +62,7 @@ const description = document.getElementById("description");
 const tagsContainer = document.getElementById("tags");
 const priceTxt = document.getElementById("priceTxt");
 const detailsContent = document.getElementById("detailsContent");
-
+const trailerYoutubeIframe = document.getElementById("trailer_youtube");
 
 let currentIndex = 0;
 
@@ -95,9 +95,53 @@ function onStart() {
 const getItem = document.getElementById("getItem");
 getItem.addEventListener('click', goToBuyLink);
 
+let player;
+function playButtonDisapearTmp() {
+    playButton.style.display = "none";
+    setTimeout(() => {
+        playButton.style.display = "";
+    }, 2000);
+}
 function goToTrailer() {
+    playButtonDisapearTmp();
+    if (!currentTrailerUrl) return;   
     playsound('click', 0.05);
-    if (currentTrailerUrl != '') window.open(currentTrailerUrl, "_blank");
+
+    const videoID = new URL(currentTrailerUrl).searchParams.get("v");
+    
+    if (player) {
+        player.loadVideoById(videoID);
+        player.playVideo();
+        trailerYoutubeIframe.style.display = "inline"
+        return;
+    }
+
+    trailerYoutubeIframe.src = `https://www.youtube.com/embed/${videoID}?enablejsapi=1`;
+
+    function createPlayer() {
+        player = new YT.Player('trailer_youtube', {
+            events: {
+                'onReady': function(event) {
+                    trailerYoutubeIframe.style.display = "inline"
+                    event.target.playVideo();
+                }
+            }
+        });
+    }
+
+    if (typeof YT !== 'undefined' && YT && YT.Player) {
+        createPlayer();
+    } else {
+        console.warn("YouTube API not loaded yet.");
+        window.onYouTubeIframeAPIReady = createPlayer;
+    }
+    // if (currentTrailerUrl != '') window.open(currentTrailerUrl, "_blank");
+}
+function stopTrailer() {
+    if (!player) return;
+    player.stopVideo();
+    player = null;
+    trailerYoutubeIframe.style.display = "none";
 }
 function goToBuyLink() {
     playsound('click', 0.05);
@@ -188,6 +232,9 @@ function endCarouselAnimation(incrIndex, recreateElement) {
     }, 500)
 }
 function carouselPrevious() {
+    stopTrailer();
+
+    trailerYoutubeIframe.style.display = "none";
     previousPreviousImg.id = "previous";
     previousImg.id = "current";
     currentImg.id = "next";
@@ -200,6 +247,9 @@ function carouselPrevious() {
     endCarouselAnimation(-1, "previousprevious");
 }
 function carouselNext() {
+    stopTrailer();
+
+    trailerYoutubeIframe.style.display = "none";
     previousPreviousImg.id = "hidden";
     previousImg.id = "previousprevious";
     currentImg.id = "previous";
@@ -348,7 +398,10 @@ function updateSources() {
     let displayProperties = currentContent['displayProperties'];
     let hasTrailer = 'videoUrl' in displayProperties;
     setPlayButton(hasTrailer);
-    if (hasTrailer) currentTrailerUrl = displayProperties['videoUrl'];
+    if (hasTrailer) {
+        currentTrailerUrl = displayProperties['videoUrl'];
+        trailerYoutubeIframe.title = `Trailer of "${currentContent['title']['neutral']}"`;
+    }
 
     let screenshotsContainer = document.getElementById("screenshots");
     updateVariables();

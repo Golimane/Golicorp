@@ -181,3 +181,24 @@
   top: 0%; transform: translateY(-105%);
   right: 25%;
 }
+
+
+
+
+
+
+/* YOUTUBE IFRAME */
+
+#trailer_youtube {
+    display: none;
+    width: 50%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    position: absolute;
+    left: 25%;
+    top: 0%;
+    z-index: 999;
+}
+#trailer_youtube.show {
+    opacity: 1;
+}
