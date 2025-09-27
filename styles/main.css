@@ -281,8 +281,11 @@ footer {
     opacity: 35%;
     cursor: default;
 }
-#mail{
+#mail {
     scale: 1.5;
+}
+#github {
+    scale: 0.8;
 }
 
 
